@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Employees_Table</title>
+    <style>
+     table
+     {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 5%;
+        font-size: 12pt;
+
+     }
+     th,td{
+        border: 1pt solid #D8D9DA;
+        padding: 10px;
+        text-align: center;
+     }
+     th{
+        background-color: #D6EFED;
+     }
+    </style>
+</head>
+<body>
+    <table id="EmployeeTable">
+        <thead>
+            <tr>
+             <th>Employee Name</th>
+             <th>Designation</th>  
+             <th>Date of joining</th>  
+             <th>Salary</th>     
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+     var employees=[
+        {Name:'Shruti Khandel',Designation:'Technical Writer',DateOfJoining:'01/12/2023',address:'Pune',salary:600000},
+        {Name:'Rohan Kapoor',Designation:'Technical Writer',DateOfJoining:'12/11/2023',address:'Pune',salary:200000},
+        {Name:'Gauri Sinha',Designation:'Software Developer',DateOfJoining:'10/11/2023',address:'Pune',salary:600000},
+        {Name:'Virat Patil',Designation:'Technical Writer',DateOfJoining:'28/11/2023',address:'Pune',salary:600000}
+
+     ];
+     function displayemployee()
+     {
+        var tableBody=document.getElementById('EmployeeTable').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML='';
+        employees.forEach(function(employee)
+        {
+            if(employee.Designation==='Technical Writer' && employee.salary>500000 && employee.salary<700000)
+            {
+                var row=tableBody.insertRow();
+                row.insertCell(0).innerHTML=employee.Name;
+                row.insertCell(1).innerHTML=employee.Designation;
+                row.insertCell(2).innerHTML=employee.DateOfJoining;
+            }
+        });
+     }
+     displayemployee();
+    </script>
+    
+</body>
+</html>
